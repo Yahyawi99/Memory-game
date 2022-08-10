@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style 2.css" />
+    <!-- JS -->
+    <script defer type="module" src="script.js"></script>
+    <title>Memory Game</title>
+  </head>
+  <body>
+    <!-- Title -->
+    <h1 id="title">memory</h1>
+
+    <!-- ************************* -->
+    <!-- Start card start -->
+    <div class="start-card">
+      <!-- select theme -->
+      <div>
+        <p class="theme">Select Theme</p>
+        <div class="btn btn-container">
+          <button id="numbers" data-id="numbers">Numbers</button>
+          <button id="icons" data-id="icons">Icons</button>
+        </div>
+      </div>
+
+      <!-- Numbers of players -->
+      <div>
+        <p class="num-of-player">Numbers of Players</p>
+        <div class="btn btn-container">
+          <button id="player-btn" data-id="1">1</button>
+          <button id="player-btn" data-id="2">2</button>
+          <button id="player-btn" data-id="3">3</button>
+          <button id="player-btn" data-id="4">4</button>
+        </div>
+      </div>
+
+      <!-- Grid size -->
+      <div>
+        <p class="grid-size">Grid Size</p>
+        <div class="btn btn-container">
+          <button id="size-btn" data-id="16">4x4</button>
+          <button id="size-btn" data-id="36">6x6</button>
+        </div>
+      </div>
+
+      <!-- Start btn -->
+      <div class="btn-container">
+        <button id="start">Start Game</button>
+      </div>
+    </div>
+    <!-- Start card end -->
+    <!-- ************************* -->
+
+    <!-- PlayGround start -->
+    <div class="playground">
+      <!-- header -->
+      <header>
+        <h1 class="title">memory</h1>
+        <div class="btns">
+          <button class="restart-btn" data-id="restart">Restart</button>
+          <button class="new-game-btn" data-id="new game">New Game</button>
+        </div>
+      </header>
+
+      <!-- grid -->
+      <div class="grid"></div>
+
+      <!-- score -->
+      <div class="score">
+        <div class="timer">
+          <p class="txt">Time</p>
+          <p class="nums">
+            <span class="minutes">00</span>
+            :
+            <span class="seconds">00</span>
+          </p>
+        </div>
+
+        <div class="moves">
+          <p class="txt">Moves</p>
+          <p class="moves-num nums">0</p>
+        </div>
+      </div>
+
+      <!-- turns -->
+      <div class="turns"></div>
+    </div>
+    <!-- PlayGround end -->
+  </body>
+</html>

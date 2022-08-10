@@ -1,0 +1,67 @@
+/* **************** */
+/* Media Query */
+/* **************** */
+@media all and (min-width: 0px) and (max-width: 555px) {
+  body {
+    height: fit-content;
+    overflow: visible;
+    min-width: 310px;
+  }
+  /* Start card */
+  .start-card {
+    width: fit-content;
+    min-width: 270px;
+  }
+  .start-card button {
+    margin-bottom: 10px;
+  }
+
+  /* Game */
+  .playground {
+    width: 100%;
+    height: fit-content;
+    min-width: 310px;
+    min-height: 110%;
+  }
+  .playground header {
+    justify-content: center;
+  }
+  .playground .btns {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 10px;
+  }
+  .playground .btns button {
+    min-width: fit-content;
+    margin: 0px 5px;
+    margin-bottom: 5px;
+  }
+  .grid {
+    transform: scale(0.8);
+  }
+
+  /* Score */
+  .score {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  .score .timer,
+  .score .moves {
+    margin-right: 5px;
+    margin-bottom: 15px;
+  }
+}
+@media all and (max-width: 355px) {
+  .grid {
+    transform: scale(0.7);
+  }
+}
+
+@media all and (min-height: 1090px) {
+  .playground {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,320 @@
+@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap");
+
+:root {
+  --color-dark-tangerine: #fda214;
+  --color-light-tangerine: #ffb84a;
+  --color-spindle: #bcced9;
+  --color-arapawa: #304859;
+  --color-tangaroa: #152938;
+  --color-white-smoke: #f2f2f2;
+  --color-bermuda-grey: #7191a5;
+  --color-shakespeare: #6395b8;
+  --color-pattens-blue: #dfe7ec;
+  --color-snow: #fcfcfc;
+  --font-size-h1: 4.8rem;
+  --font-size-h2: 3.2rem;
+  --font-size-h3: 2rem;
+  --font-size-number-4x4: 4.4rem;
+  --font-size-number-6x6: 3.2rem;
+  --font-size-button: 2rem;
+  --font-size-button-big: 3rem;
+  --font-size-button-menu: 2.4rem;
+  --font-size-p: 1.8rem;
+}
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-tangaroa);
+  font-family: monospace;
+}
+
+#title {
+  color: var(--color-snow);
+  margin-bottom: 20px;
+}
+
+/* Start Card */
+.start-card {
+  width: 40%;
+  max-width: 560px;
+  min-width: 550px;
+  background-color: var(--color-snow);
+  border-radius: 8px;
+  padding: 20px 25px;
+}
+.start-card div {
+  margin-bottom: 50px;
+}
+.start-card div p {
+  color: var(--color-bermuda-grey);
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.start-card .btn-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 0px;
+}
+.start-card button {
+  width: 60%;
+  height: 40px;
+  max-width: 225px;
+  border-radius: 25px;
+  border: none;
+  color: var(--color-snow);
+  background-color: var(--color-spindle);
+  font-weight: 800;
+  font-family: monospace;
+  font-size: 1.1rem;
+  transition: 0.25s;
+  cursor: pointer;
+}
+.btn-container button:hover {
+  background-color: var(--color-shakespeare);
+}
+.btn-container #player-btn {
+  max-width: 100px;
+}
+.start-card #start {
+  width: 95%;
+  max-width: initial;
+  background-color: var(--color-dark-tangerine);
+  margin: auto;
+  margin-bottom: 10px;
+}
+.start-card #start:hover {
+  background-color: var(--color-light-tangerine);
+}
+
+/* Playground */
+.playground {
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-snow);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  font-family: monospace;
+}
+.playground header {
+  width: 65%;
+  max-width: 700px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0px;
+}
+.playground header .title {
+  color: var(--color-tangaroa);
+}
+.playground .btns button {
+  padding: 8px 20px;
+  border-radius: 25px;
+  border: none;
+  color: var(--color-snow);
+  background-color: var(--color-pattens-blue);
+  font-weight: 800;
+  transition: 0.25s;
+  cursor: pointer;
+}
+.playground .btns .restart-btn {
+  background-color: var(--color-dark-tangerine);
+}
+.playground .btns .restart-btn:hover {
+  background-color: var(--color-light-tangerine);
+}
+.playground .btns .new-game-btn {
+  color: var(--color-arapawa);
+}
+.playground .btns .new-game-btn:hover {
+  background-color: var(--color-shakespeare);
+  color: var(--color-snow);
+}
+
+/* Grid */
+.grid {
+  width: 40%;
+  max-width: min-content;
+  display: grid;
+  grid-auto-rows: auto;
+  justify-content: space-around;
+  padding-top: 8px;
+}
+.grid .icon {
+  width: 60px;
+  height: 60px;
+  background-color: var(--color-dark-tangerine);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 20px;
+  margin: auto;
+  margin-bottom: 10px;
+  position: relative;
+}
+.grid .icon::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background-color: var(--color-tangaroa);
+  position: absolute;
+  transition: 0.5s;
+}
+.grid .icon svg path {
+  fill: var(--color-snow);
+}
+.grid .icon span {
+  font-size: 1.5rem;
+  color: var(--color-snow);
+  font-weight: 800;
+}
+
+/* Score */
+.score {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+.score .timer {
+  margin-right: 15px;
+}
+.score .timer,
+.score .moves {
+  width: 200px;
+  background-color: var(--color-pattens-blue);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-family: monospace;
+}
+.score .timer .txt,
+.score .moves .txt {
+  color: var(--color-shakespeare);
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+.score .timer .nums,
+.score .moves .nums {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-tangaroa);
+}
+
+/* Turns */
+.turns {
+  display: none;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 25px;
+}
+.turns .player {
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  background-color: var(--color-pattens-blue);
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin: 0px 10px;
+  margin-bottom: 25px;
+  transition: 0.5s;
+}
+.turns .player .name {
+  color: var(--color-shakespeare);
+  font-weight: 800;
+  font-size: 1rem;
+}
+.turns .player #nums {
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+.turns .player .msg {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  color: var(--color-tangaroa);
+  font-weight: 800;
+  bottom: -20px;
+  padding-right: 40px;
+  visibility: hidden;
+}
+.rectangle {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: -10px;
+  left: calc(50% - 15px);
+  background-color: inherit;
+  transform: rotate(45deg);
+  margin: auto;
+  visibility: hidden;
+}
+
+/* ****************** */
+/* Javascript classes */
+/* ****************** */
+/* start card choice btns */
+.start-card .btn-container .clicked {
+  background-color: var(--color-arapawa);
+}
+
+/* Game start */
+.game-started {
+  display: flex;
+}
+
+/* Clicked Icon */
+.grid .icon-clicked::after {
+  transform: scale(0);
+}
+.grid .icon-clicked {
+  pointer-events: none;
+}
+
+/* Found match */
+.grid .found-match {
+  background-color: var(--color-bermuda-grey);
+  pointer-events: none;
+}
+
+/* Change player turns */
+.turns .player-on {
+  background-color: var(--color-dark-tangerine);
+}
+.turns .player-on .rectangle,
+.turns .player-on .msg {
+  visibility: visible;
+}
+
+/* Winner */
+.turns .winner {
+  background-color: rgb(0, 200, 0);
+}
+.turns .winner .rectangle,
+.turns .winner .msg {
+  visibility: visible;
+  color: rgb(0, 200, 0);
+}
+.turns .winner .name {
+  color: var(--color-snow);
+}

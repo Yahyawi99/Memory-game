@@ -108,9 +108,14 @@ async function clickedIcon(e) {
   let myIcon = e.currentTarget;
 
   myIcon.classList.add("icon-clicked");
-  ids.push(myIcon.children[0]);
+
+  if (!ids.includes(myIcon.children[0])) {
+    ids.push(myIcon.children[0]);
+  }
 
   if (ids.length === 2) {
+    [...Grid.children].forEach((icon) => (icon.style.pointerEvents = "none"));
+
     if (ids[0].dataset.id === ids[1].dataset.id) {
       await wait(500);
       ids.forEach((e) => {
@@ -135,7 +140,11 @@ async function clickedIcon(e) {
         soloPlayerScore();
       }
     }
+
     ids = [];
+    [...Grid.children].forEach(
+      (icon) => (icon.style.pointerEvents = "initial")
+    );
   }
 }
 
@@ -355,18 +364,23 @@ function styleWinnerCard() {
   });
 }
 
-// for solo player
+// *************************
+// solo player
+let condition = [...Grid.children].every((icon) =>
+  icon.classList.contains("found-match")
+);
+
+function format(value) {
+  if (value < 10) {
+    return "0" + value;
+  } else {
+    return value;
+  }
+}
+
 async function soloPlayer() {
   const Minutes = document.querySelector(".minutes");
   const Seconds = document.querySelector(".seconds");
-
-  function format(value) {
-    if (value < 10) {
-      return "0" + value;
-    } else {
-      return value;
-    }
-  }
 
   Seconds.textContent++;
   let seconds = format(Seconds.textContent);
@@ -379,16 +393,16 @@ async function soloPlayer() {
     Minutes.textContent = minutes;
   }
 
-  let condition = [...Grid.children].every((icon) =>
+  condition = [...Grid.children].every((icon) =>
     icon.classList.contains("found-match")
   );
-
-  if (!condition) {
-    await wait(1000);
-
-    requestAnimationFrame(soloPlayer);
-  }
 }
+
+setInterval(() => {
+  if (!condition) {
+    soloPlayer();
+  }
+}, 1000);
 
 function soloPlayerScore() {
   const My_Score = document.querySelector(".moves-num");
@@ -467,8 +481,9 @@ async function restartGame() {
     Minutes.textContent = "00";
     Seconds.textContent = "00";
 
-    cancelAnimationFrame();
-    requestAnimationFrame(soloPlayer);
+    condition = [...Grid.children].every((icon) =>
+      icon.classList.contains("found-match")
+    );
   } else {
     // Multiple player
     turn = 1;

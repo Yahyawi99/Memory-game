@@ -87,6 +87,7 @@ function wait(time) {
   return new Promise((resolve, reject) => setTimeout(resolve, time));
 }
 
+// **********************************
 // clicked button
 function clickedBtnFunc(event) {
   let myChoice = event.target;
@@ -100,6 +101,7 @@ function clickedBtnFunc(event) {
   }
 }
 
+// ******************************
 // Clicked Icon
 let ids = [];
 async function clickedIcon(e) {
@@ -137,6 +139,7 @@ async function clickedIcon(e) {
   }
 }
 
+// ****************************
 // Start The Game
 function stratTheGame() {
   let mybtns = [];
@@ -157,6 +160,7 @@ function stratTheGame() {
   }
 }
 
+// ***********************
 // Playground
 function playground(myArr) {
   let keysName = ["theme", "players", "size"];
@@ -171,10 +175,12 @@ function playground(myArr) {
   players(myData);
 
   const myIcons = document.querySelectorAll(".icon");
+
   myIcons.forEach((icon) => {
     icon.addEventListener("click", clickedIcon);
   });
 }
+
 function themes(data) {
   if (data.theme === "icons") {
     let arr = [];
@@ -197,6 +203,7 @@ function themes(data) {
   }
   makeItRandom();
 }
+
 function makeItRandom() {
   let myRandomArr = [];
 
@@ -213,6 +220,7 @@ function makeItRandom() {
     Grid.innerHTML += myRandomArr[i].outerHTML;
   }
 }
+
 function players(data) {
   if (data.players === "1") {
     Score.style.display = "flex";
@@ -224,16 +232,19 @@ function players(data) {
     Turns.style.display = "flex";
 
     for (let i = 0; i < data.players; i++) {
-      Turns.innerHTML += `<div data-win="Player_${
-        i + 1
-      }" class="player"><p class="name">Player ${
-        1 + i
-      }</p><p id="nums">0</p><span class="msg">CURRENT TURN</span><div class="rectangle"></div></div>`;
+      Turns.innerHTML += `
+      <div data-win="Player_${i + 1}" class="player">
+      <p class="name">Player ${1 + i}</p>
+      <p id="nums">0</p>
+      <span class="msg">CURRENT TURN</span>
+      <div class="rectangle"></div>
+      </div>`;
     }
 
     multiplePlayerTurn();
   }
 }
+
 function gridSize(data) {
   let subtractor;
 
@@ -260,11 +271,14 @@ function gridSize(data) {
   }
 }
 
+// *****************************
 // Increment the score
+
 // for multiple players
 let turn = 0;
 function multiplePlayerTurn() {
-  All_Players = document.querySelectorAll(".player");
+  const All_Players = document.querySelectorAll(".player");
+
   let length = All_Players.length;
 
   All_Players.forEach((e) => {
@@ -290,6 +304,7 @@ function multiplePlayerTurn() {
     return "out";
   }
 }
+
 function multiplePlayerScore() {
   const All_Players = document.querySelectorAll(".player");
 
@@ -318,7 +333,9 @@ function multiplePlayerScore() {
     }
   }
 }
+
 function styleWinnerCard() {
+  const All_Players = document.querySelectorAll(".player");
   const final_Score = {};
   let WINNER;
 
@@ -351,7 +368,6 @@ async function soloPlayer() {
     }
   }
 
-  await wait(1000);
   Seconds.textContent++;
   let seconds = format(Seconds.textContent);
   Seconds.textContent = seconds;
@@ -367,18 +383,20 @@ async function soloPlayer() {
     icon.classList.contains("found-match")
   );
 
-  window.requestAnimationFrame(soloPlayer);
+  if (!condition) {
+    await wait(1000);
 
-  if (condition) {
-    window.cancelAnimationFrame();
+    requestAnimationFrame(soloPlayer);
   }
 }
+
 function soloPlayerScore() {
   const My_Score = document.querySelector(".moves-num");
 
   My_Score.textContent++;
 }
 
+// ***********************
 // Reset & New game buttons
 function headerButtons(event) {
   let myId = event.target.dataset.id;
@@ -390,7 +408,9 @@ function headerButtons(event) {
     newGame();
   }
 }
+
 function newGame() {
+  const All_Players = document.querySelectorAll(".player");
   const My_Score = document.querySelector(".moves-num");
   const Minutes = document.querySelector(".minutes");
   const Seconds = document.querySelector(".seconds");
@@ -419,7 +439,9 @@ function newGame() {
     turn = 0;
   }
 }
-function restartGame() {
+
+async function restartGame() {
+  const All_Players = document.querySelectorAll(".player");
   const My_Score = document.querySelector(".moves-num");
   const Minutes = document.querySelector(".minutes");
   const Seconds = document.querySelector(".seconds");
@@ -444,6 +466,9 @@ function restartGame() {
     My_Score.textContent = 0;
     Minutes.textContent = "00";
     Seconds.textContent = "00";
+
+    cancelAnimationFrame();
+    requestAnimationFrame(soloPlayer);
   } else {
     // Multiple player
     turn = 1;

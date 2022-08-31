@@ -21,6 +21,7 @@
   --font-size-button-menu: 2.4rem;
   --font-size-p: 1.8rem;
 }
+
 * {
   margin: 0%;
   padding: 0%;
@@ -28,7 +29,7 @@
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -51,14 +52,17 @@ body {
   border-radius: 8px;
   padding: 20px 25px;
 }
+
 .start-card div {
   margin-bottom: 50px;
 }
+
 .start-card div p {
   color: var(--color-bermuda-grey);
   font-weight: 700;
   margin-bottom: 20px;
 }
+
 .start-card .btn-container {
   width: 100%;
   display: flex;
@@ -66,6 +70,7 @@ body {
   justify-content: space-around;
   margin-bottom: 0px;
 }
+
 .start-card button {
   width: 60%;
   height: 40px;
@@ -80,12 +85,15 @@ body {
   transition: 0.25s;
   cursor: pointer;
 }
+
 .btn-container button:hover {
   background-color: var(--color-shakespeare);
 }
+
 .btn-container #player-btn {
   max-width: 100px;
 }
+
 .start-card #start {
   width: 95%;
   max-width: initial;
@@ -93,20 +101,24 @@ body {
   margin: auto;
   margin-bottom: 10px;
 }
+
 .start-card #start:hover {
   background-color: var(--color-light-tangerine);
 }
 
 /* Playground */
 .playground {
+  width: 100%;
+  min-height: 100vh;
   position: absolute;
-  inset: 0;
+  top: 0;
   background-color: var(--color-snow);
   display: none;
   flex-direction: column;
   align-items: center;
   font-family: monospace;
 }
+
 .playground header {
   width: 65%;
   max-width: 700px;
@@ -116,9 +128,11 @@ body {
   align-items: center;
   padding: 20px 0px;
 }
+
 .playground header .title {
   color: var(--color-tangaroa);
 }
+
 .playground .btns button {
   padding: 8px 20px;
   border-radius: 25px;
@@ -129,15 +143,19 @@ body {
   transition: 0.25s;
   cursor: pointer;
 }
+
 .playground .btns .restart-btn {
   background-color: var(--color-dark-tangerine);
 }
+
 .playground .btns .restart-btn:hover {
   background-color: var(--color-light-tangerine);
 }
+
 .playground .btns .new-game-btn {
   color: var(--color-arapawa);
 }
+
 .playground .btns .new-game-btn:hover {
   background-color: var(--color-shakespeare);
   color: var(--color-snow);
@@ -152,6 +170,7 @@ body {
   justify-content: space-around;
   padding-top: 8px;
 }
+
 .grid .icon {
   width: 60px;
   height: 60px;
@@ -166,6 +185,7 @@ body {
   margin-bottom: 10px;
   position: relative;
 }
+
 .grid .icon::after {
   content: "";
   width: 100%;
@@ -175,9 +195,11 @@ body {
   position: absolute;
   transition: 0.5s;
 }
+
 .grid .icon svg path {
   fill: var(--color-snow);
 }
+
 .grid .icon span {
   font-size: 1.5rem;
   color: var(--color-snow);
@@ -191,9 +213,11 @@ body {
   margin-top: 25px;
   margin-bottom: 25px;
 }
+
 .score .timer {
   margin-right: 15px;
 }
+
 .score .timer,
 .score .moves {
   width: 200px;
@@ -205,12 +229,14 @@ body {
   border-radius: 5px;
   font-family: monospace;
 }
+
 .score .timer .txt,
 .score .moves .txt {
   color: var(--color-shakespeare);
   font-weight: 800;
   font-size: 1.1rem;
 }
+
 .score .timer .nums,
 .score .moves .nums {
   font-size: 1.1rem;
@@ -225,6 +251,7 @@ body {
   justify-content: space-around;
   margin-top: 25px;
 }
+
 .turns .player {
   width: 200px;
   display: flex;
@@ -238,15 +265,18 @@ body {
   margin-bottom: 25px;
   transition: 0.5s;
 }
+
 .turns .player .name {
   color: var(--color-shakespeare);
   font-weight: 800;
   font-size: 1rem;
 }
+
 .turns .player #nums {
   font-size: 1.4rem;
   font-weight: 800;
 }
+
 .turns .player .msg {
   width: 100%;
   display: flex;
@@ -258,6 +288,7 @@ body {
   padding-right: 40px;
   visibility: hidden;
 }
+
 .rectangle {
   width: 25px;
   height: 25px;
@@ -287,6 +318,7 @@ body {
 .grid .icon-clicked::after {
   transform: scale(0);
 }
+
 .grid .icon-clicked {
   pointer-events: none;
 }
@@ -301,6 +333,7 @@ body {
 .turns .player-on {
   background-color: var(--color-dark-tangerine);
 }
+
 .turns .player-on .rectangle,
 .turns .player-on .msg {
   visibility: visible;
@@ -310,11 +343,13 @@ body {
 .turns .winner {
   background-color: rgb(0, 200, 0);
 }
+
 .turns .winner .rectangle,
 .turns .winner .msg {
   visibility: visible;
   color: rgb(0, 200, 0);
 }
+
 .turns .winner .name {
   color: var(--color-snow);
 }
